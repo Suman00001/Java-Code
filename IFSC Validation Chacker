@@ -1,0 +1,39 @@
+
+
+			/*
+       * User will enter an IFSC code,You have to check is it valid or invalid
+			 * Rules :
+			 * 1.It have 11 character
+			 * 2.First Four character will be Capital alphabet
+			 * 3.Fifth character will be 0
+			 * 4.Other remending Character can be alphabet or number
+			 * 
+			 * Sample input : SBIN0i45768
+			 * 
+			 * The Problem is solved By Java Regex
+			 */
+
+package com.ibm.test;
+
+import java.util.Scanner;
+import java.util.regex.*;
+
+public class IFSC {
+
+	public static void main(String[] args) {
+		
+		try (Scanner sc = new Scanner(System.in)) {
+			System.out.println("Enter Your IFSC code : ");
+			String ifsc=sc.nextLine();
+			
+			boolean match=Pattern.matches("^[A-Z]{4}[0]{1}[a-zA-Z0-9]{6}$", ifsc);
+			
+			if(match) {
+				System.out.println("The IFSC code is Valid");
+			}else {
+				System.out.println("This is not a valid IFSC,Please try again!!");
+			}
+		}
+	} 
+
+}
